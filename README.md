@@ -1,36 +1,4 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
-
-## Getting Started
-
-First, run the development server:
-
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+![0aadf2f0-c18c-4f78-9fa5-1b5842834a49](https://github.com/sakibsarker/airbnb_frontend/assets/95316668/4c47a7df-1b2d-49a9-a582-dfb489e2c03a)
+![7e166181-301b-47c5-b74e-6b5dd5f12ec6](https://github.com/sakibsarker/airbnb_frontend/assets/95316668/cd28731f-82b7-4306-ac3a-e3a76827cb18)
+![29027a0c-71cd-4112-90cd-4e700cc1268a](https://github.com/sakibsarker/airbnb_frontend/assets/95316668/ed53f016-5c7b-4628-bccc-86e642a94637)
+![8e8cf555-2360-4afc-9cf1-66667125e1d7](https://github.com/sakibsarker/airbnb_frontend/assets/95316668/b36e4844-bca4-4422-89ce-30236e2a088b)
