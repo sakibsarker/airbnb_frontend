@@ -6,11 +6,12 @@ import Modal from "./components/modals/Modal";
 import LoginModal from "./components/modals/LoginModal";
 import SignupModal from "./components/modals/SignupModal";
 import AddPropertyModal from "./components/modals/AddPropertyModal";
-
+import "react-date-range/dist/styles.css"; // main style file
+import "react-date-range/dist/theme/default.css"; // theme css file
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "Django Bnb",
+  title: "DUDO HOUSE",
   description: "Rent House",
 };
 

@@ -13,7 +13,7 @@ const NavBar = async () => {
       <div className="max-w-[1500px] mx-auto px-6">
         <div className="flex justify-between items-center">
           <Link href="/">
-            <Image height={38} width={100} alt="logo" src="/logo.jpg" />
+            <Image height={38} width={100} alt="logo" src="/logo.png" />
           </Link>
           <div className="flex space-x-6">
             <SearchFilter />
