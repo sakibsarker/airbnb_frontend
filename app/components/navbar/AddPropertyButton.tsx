@@ -23,7 +23,7 @@ const AddPropertyButton: React.FC<AddPropertyButtonProps> = ({ userId }) => {
       onClick={airbnbYourHome}
       className="p-2 cursor-auto text-sm font-semibold rounded-full hover:bg-gray-100"
     >
-      DjangoBnb your home
+      DingDong Home
     </div>
   );
 };

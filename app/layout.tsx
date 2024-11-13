@@ -11,7 +11,7 @@ import "react-date-range/dist/theme/default.css"; // theme css file
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "DUDO HOUSE",
+  title: "Dingdong",
   description: "Rent House",
 };
 

@@ -1,10 +1,12 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Range } from "react-date-range";
+import { DateRange, Range } from "react-date-range";
 import apiService from "../services/apiService";
 import userLoginModal from "@/app/hooks/useLoginModal";
 import { differenceInDays, eachDayOfInterval } from "date-fns";
+import DatePicker from "../forms/Calendar";
+import { format } from "date-fns";
 
 const initialDateRange = {
   startDate: new Date(),
@@ -36,10 +38,52 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
   const [dateRange, setDateRange] = useState<Range>(initialDateRange);
   const [minDate, setMinDate] = useState<Date>(new Date());
   const [guests, setGuests] = useState<string>("1");
+
   const guestsRange = Array.from(
     { length: property.data.guests },
     (_, index) => index + 1
   );
+  const performBooking = async () => {
+    if (userId) {
+      if (dateRange.startDate && dateRange.endDate) {
+        const formData = new FormData();
+        formData.append("guests", guests);
+        formData.append(
+          "start_date",
+          format(dateRange.startDate, "yyyy-MM-dd")
+        );
+        formData.append("end_date", format(dateRange.endDate, "yyyy-MM-dd"));
+        formData.append("number_of_nights", nights.toString());
+        formData.append("total_price", totalPrice.toString());
+        const response = await apiService.post(
+          `/api/properties/${property.data.id}/book/`,
+          formData
+        );
+        if (response.success) {
+          console.log("booking successfully");
+        } else {
+          console.log("Something went wrong...");
+        }
+      }
+    } else {
+      loginModal.open();
+    }
+  };
+
+  const _setDateRange = (selection: any) => {
+    const newStartDate = new Date(selection.startDate);
+    const newEndDate = new Date(selection.endDate);
+
+    if (newEndDate <= newStartDate) {
+      newEndDate.setDate(newStartDate.getDate() + 1);
+    }
+    setDateRange({
+      ...dateRange,
+      startDate: newStartDate,
+      endDate: newEndDate,
+    });
+  };
+
   useEffect(() => {
     if (dateRange.startDate && dateRange.endDate) {
       const dayCount = differenceInDays(dateRange.endDate, dateRange.startDate);
@@ -61,6 +105,10 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
       <h2 className="mb-5 text-2xl">
         ${property.data.price_per_night} per night
       </h2>
+      <DatePicker
+        value={dateRange}
+        onChange={(value) => _setDateRange(value.selection)}
+      />
       <div className="mb-6 p-3 border border-gray-400 rounded-xl">
         <label className="mb-2 block font-bold text-xs">Guests</label>
 
@@ -76,7 +124,10 @@ const ReservationSidebar: React.FC<ReservationSidebarProps> = ({
           ))}
         </select>
       </div>
-      <div className="w-full mb-6 py-6 text-center text-white bg-airbnb hover:bg-airbnb-dark transition rounded-xl">
+      <div
+        onClick={performBooking}
+        className="w-full mb-6 py-6 text-center text-white bg-airbnb hover:bg-airbnb-dark transition rounded-xl"
+      >
         Book
       </div>
       <div className="mb-4 flex justify-between align-center">
